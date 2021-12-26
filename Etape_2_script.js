@@ -3,10 +3,14 @@ const https = require('https')
 var axios = require('axios');
 var FormData = require('form-data');
 var data = new FormData();
+var usrName = '*,*';
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false
 })
 
+if (true){
+  
+}
 data.append('search', '*,*');
 var config = {
   method: 'post',
@@ -19,12 +23,28 @@ var config = {
   data : data
 };
 
-//const axiosInst = axios.created((httpsAgent))
+//Find a key word in the page
+function findKey(response){
+  return response.data.includes('Malcolm')
+}
+
+//
+function findUser(){
+
+}
+
+function findPswd(){
+
+}
 
 axios(config)
+
 .then(function (response) {
-  console.log(JSON.stringify(response.data));
+  if (findKey(response)){
+    console.log("Reussi!")
+  }
 })
+
 .catch(function (error) {
   console.log("stop erreur");
 });
