@@ -3,7 +3,7 @@ const https = require('https')
 var axios = require('axios');
 var FormData = require('form-data');
 var data = new FormData();
-var usrName = '*,*';
+var srchField = '*,*';
 
 class StringIdGenerator {
   constructor(chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') {
@@ -39,13 +39,11 @@ class StringIdGenerator {
   }
 }
 
+const usrName = new StringIdGenerator();
 const httpsAgent = new https.Agent({
   rejectUnauthorized: false
 })
 
-if (true){
-  
-}
 data.append('search', '*,*');
 var config = {
   method: 'post',
@@ -65,7 +63,9 @@ function findKey(response){
 
 //
 function findUser(){
+  while(!findKey(response)){
 
+  }
 }
 
 function findPswd(){
@@ -75,8 +75,11 @@ function findPswd(){
 axios(config)
 
 .then(function (response) {
-  if (findKey(response)){
-    console.log("Reussi!")
+  // if (findKey(response)){
+  //   console.log("Reussi!")
+  // }
+  for (let i=0; i<53; i++){
+    console.log(usrName.next());
   }
 })
 
