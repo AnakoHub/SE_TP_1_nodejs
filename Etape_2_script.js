@@ -8,9 +8,6 @@ const httpsAgent = new https.Agent({
   rejectUnauthorized: false
 })
 
-if (true){
-  
-}
 data.append('search', '*,*');
 var config = {
   method: 'post',
